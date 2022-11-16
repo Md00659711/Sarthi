@@ -1,0 +1,10 @@
+{
+    "/": {
+      "target": "http://one11tech.com",
+      "secure": false,
+      "changeOrigin": true,
+      "logLevel": "debug",
+      "pathRewrite": {"^/" : ""}
+    }
+    
+  }

@@ -1,0 +1,79 @@
+<div class="container">
+    <div class="row mt-5">
+      <div class="col-sm-5 m-3 p-3 border rounded" *ngFor="let voter of voter_data">
+  
+        <div><b>{{voter.ID}}. {{voter.VNAME_EN}} ,{{voter.VRNAME_EN}}  ( {{voter.SEX}} , {{voter.AGE}} )</b></div>
+        <div>  {{voter.ID}}- {{voter.PS_EN}}</div>
+        <div class="row p-1">
+          <div class="col-sm-6">
+             <b> House NO:</b> {{voter.HOUSE_NO}}
+          </div>
+          <div class="col-sm-6 text-right">
+             <b> Id Card: </b>{{voter.IDCARD_NO}}
+          </div>
+        </div>
+        <div class="text-warning" *ngIf="voter.MOBILE_1">
+          <b>Contact No: </b>{{voter.MOBILE_1}}
+        </div>
+        <div class="text-success" *ngIf="voter.VOTER_RELA">
+          <b>Voter Relation: </b> {{voter.VOTER_RELA}}
+        </div>
+        <div class="text-danger" *ngIf="voter.PRO_SUGG">
+         <b> Problem/Suggestion: </b> {{voter.PRO_SUGG}}
+        </div>
+    
+        
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 text-center">
+        <nav aria-label="Page navigation example">
+          <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+<!-- <div class="container">
+  <table class="table table-responsive">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Parent Name</th>
+        <th scope="col">Gender</th>
+        <th scope="col">Age</th>
+        <th scope="col">Location</th>
+        <th scope="col">House No.</th>
+        <th scope="col">Id Card</th>
+        <th scope="col">Updated By</th>
+        <th scope="col">Voter Relation</th>
+        <th scope="col">Problem/Suggestion</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let voter of voter_data;">
+        <td>{{voter.VNAME_EN}}</td>
+        <td>{{voter.VRNAME_EN}}</td>
+        <td>{{voter.SEX}}</td>
+        <td>{{voter.AGE}}</td>
+        <td>{{voter.PS_EN}}</td>
+        <td>{{voter.AGE}}</td>
+        <td>{{voter.IDCARD_NO}}</td>
+        <td></td>
+        <td>{{voter.VOTER_RELA}}</td>
+        <td>{{voter.PRO_SUGG}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div> -->
+
+
+
+
+

@@ -1,0 +1,100 @@
+<div class="sidebar close " style="margin-top: 3rem;">
+    <ul class="nav-links">
+      <li [routerLinkActive]="['active']">
+        <a [routerLink]="'/dashboard'">
+          <i class="fas fa-list-alt"></i>
+          <!-- <span class="link_name">Dashboard</span> -->
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" [routerLink]="'/dashboard'">Dashboard</a></li>
+        </ul>
+      </li>
+    
+      <li [routerLinkActive]="['active']">
+        <a [routerLink]="'search'">
+          <i class="fa fa-search" aria-hidden="true"></i>
+          <!-- <span class="link_name">Dashboard</span> -->
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" [routerLink]="'/search'">Search</a></li>
+        </ul>
+      </li>
+      <li [routerLinkActive]="['active']">
+        <a [routerLink]="'list'">
+          <i class="fas fa-list-alt"></i>
+          <!-- <span class="link_name">Dashboard</span> -->
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" [routerLink]="'list'">List</a></li>
+        </ul>
+      </li>
+      <!-- <li [routerLinkActive]="['active']">
+        <a href="#">
+          <i class="fa-solid fa-booth-curtain"></i>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Booth</a></li>
+        </ul>
+      </li> -->
+      <li [routerLinkActive]="['active']">
+        <a href="#">
+          <i class="fas fa-user-alt"></i>
+          <!-- <span class="link_name">Dashboard</span> -->
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Assign</a></li>
+        </ul>
+      </li>
+      <li [routerLinkActive]="['active']">
+        <a href="#">
+          <i class="fa fa-birthday-cake" aria-hidden="true"></i>
+          <!-- <span class="link_name">Dashboard</span> -->
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Birthday</a></li>
+        </ul>
+      </li>
+      <li [routerLinkActive]="['active']">
+        <a href="#">
+          <i class="	fas fa-gifts"></i>
+          <!-- <span class="link_name">Dashboard</span> -->
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Festival</a></li>
+        </ul>
+      </li>
+      <li [routerLinkActive]="['active']">
+        <a href="#">
+          <i class="fa fa-circle fa-stack"></i>
+          <!-- <span class="link_name">Dashboard</span> -->
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Notification</a></li>
+        </ul>
+      </li>
+      <!-- <li [routerLinkActive]="['active']">
+        <a href="#">
+          <i class="fas fa-user-alt"></i>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Language</a></li>
+        </ul>
+      </li> -->
+      <li [routerLinkActive]="['active']">
+        <a href="#">
+          <i class="fa fa-cog" aria-hidden="true"></i>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Setting</a></li>
+        </ul>
+      </li>
+      <li [routerLinkActive]="['active']">
+        <a href="#">
+          <i class="fa fa-power-off" aria-hidden="true"></i>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" [routerLink]="'/logout'">Logout</a></li>
+        </ul>
+      </li>
+  </ul>
+  </div>

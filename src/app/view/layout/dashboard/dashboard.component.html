@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 mt-5 mb-5">
+        <img src={{image_url}} width="100%" />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-3 col-sm-3 m-3 p-3 border rounded">
+      <select class="form-select" aria-label="Default select example" name="assembliyList" #mySelect (change)='getDataOfDashData(mySelect.value)'>
+        <option selected value="0">Select Assembly</option>
+        <option *ngFor="let ass of assembliyList" [value]="ass.asem_id"> {{ass.asem_name}}</option>
+      </select>
+    </div>
+    <div class="col-sm-3 col-sm-3 m-3 p-3 border rounded  text-center">
+       <b>Total Voter </b>
+        <div class="text-success"> {{totol_voter}} </div>
+    </div>
+  </div>
+
+  <div class="row mt-3 mb-3  ">
+    <div class="col-sm-3  col-sm-3 m-3 p-3 border text-center">
+       <b> Total </b>
+       <div class="text-success">1</div>
+    </div>
+    <div class="col-sm-3 col-sm-3 m-3 p-3 border rounded text-center">
+      <b>Active </b>
+      <div class="text-success">0</div>
+    </div>
+    <div class="col-sm-3 col-sm-3 m-3 p-3 border rounded  text-center">
+      <b>
+        DeActive 
+       </b>
+       <div class="text-success">3</div> 
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3 m-3 p-3 border rounded" *ngFor="let user of user_info">
+      <div class="title border-bottom pb-1 ">
+        <b>{{user.name}}</b>
+      </div>
+      <div *ngFor="let option of user.data"  class="border-bottom pt-3 pb-1">
+          {{option.NAME}} : {{option.COUNT}}
+      </div>
+
+    </div>
+  </div>
+</div>
