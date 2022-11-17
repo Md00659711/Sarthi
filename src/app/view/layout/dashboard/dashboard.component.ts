@@ -57,8 +57,6 @@ export class DashboardComponent implements OnInit {
     this._loginservice.postuserdata(arg_1, arg_2).subscribe({
       next: (data) => {
         this.assembliyList = data.data.assemblies;
-        
-        
       }
 
     });
