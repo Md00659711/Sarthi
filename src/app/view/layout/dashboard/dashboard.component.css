@@ -1,0 +1,15 @@
+.count{
+    color: coral !important;
+    font-size: 36px;
+    font-weight: 500;
+}
+.relation{
+    color: green !important;
+    font-size: 36px;
+    font-weight: 500;
+}
+.problem{
+    color: red !important;
+    font-size: 36px;
+    font-weight: 500;
+}

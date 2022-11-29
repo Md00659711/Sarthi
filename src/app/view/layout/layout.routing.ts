@@ -26,8 +26,28 @@ const route: Routes = [
             {
                 path: 'list',
                 loadChildren: () => import('./list/list.module').then(m => m.ListComponentModule)
+            },
+            {
+                path: 'assign',
+                loadChildren: () => import('./assign/assign.module').then(m => m.AssignModule)
+            },
+            {
+                path: 'birthday',
+                loadChildren: () => import('./birthday/birthday.module').then(m => m.BirthdayModule)
+            },
+            {
+                path: 'festival',
+                loadChildren: () => import('./festival/festival.module').then(m => m.FestivalModule)
+            },
+            {
+                path: 'notification',
+                loadChildren: () => import('./notification/notification.module').then(m => m.NotificationModule)
+            },
+            {
+                path: 'setting',
+                loadChildren: () => import('./setting/setting.module').then(m => m.SettingModule)
             }
-        ]
+        ] 
     }
 ]
 

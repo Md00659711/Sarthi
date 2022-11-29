@@ -13,9 +13,13 @@ export class DashboardComponent implements OnInit {
     user_info :any;
     totol_voter :any;
     voter_data :any;
+    TOTAL_USER:any;
+    VERIFIED_USER:any;
+    INVALID_USER:any;
+    VOTER_RELA:any;
+    PROB_SUGG:any;
     userPassword = localStorage.getItem('pass');
     assembliyList: Array<any> = [];
-
     constructor(private _loginservice: LoginService , private _dashdata : DashService) {
       this.userDetails = this._loginservice.getLoggedInUser();
  
@@ -24,7 +28,6 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.getDataOfLoginUser();
     this.getDataOfDashData("0");
-    
   }
 
   getDataOfLoginUser() {
@@ -63,7 +66,7 @@ export class DashboardComponent implements OnInit {
   }
 
   getDataOfDashData(arg:any){
-
+   console.log(arg.name);
     var search = {
       sheet_id: this.userDetails.data.id,
       asem_id: arg
@@ -73,11 +76,13 @@ export class DashboardComponent implements OnInit {
         next: (data) => {
           this.user_info=data.data;
           this.totol_voter=data.TOTAL_VOTER;
+          this.TOTAL_USER=data.TOTAL_USER;
+          this.VERIFIED_USER=data.VERIFIED_USER;
+          this.INVALID_USER=data.INVALID_USER;
+          this.VOTER_RELA=data.VOTER_RELA;
+          this.PROB_SUGG=data.PROB_SUGG;       
         }
 
       });
   }
-
-
-
 }

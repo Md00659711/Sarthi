@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.test();
+
   }
 
   onSubmit(fc: any) {
@@ -47,15 +47,5 @@ export class LoginComponent implements OnInit {
       }
     })
   }
-
-  test(){
-    this._login.tset().subscribe({
-      next: (data) => {
-        console.log (data);
-        this.numbers=data;
-        console.log(data)
-      }
-    });
-   }
 
 }

@@ -1,13 +1,14 @@
 <div class="container">
-    <div class="row p-3">
-        <div class="col-sm-12 m-p text-center">
-            <form class="mr-3" #search_data="ngForm" (ngSubmit)="search_voter_list(search_data.value)">
-                <input type="text" class="search"  placeholder="Search..." name="search" ngModel>
-                <input type="submit" class="search_btn" value="Search">
-            </form>
-         </div>
-      </div>
-      <div class="row p-5">
+      <div class="row p-3">
+        <div class="col-sm-12 p-3 text-center">
+          <h4>Voter List</h4>
+        </div>
+        <div class="col-sm-3 m-p ">
+          <form class="" #search_data="ngForm" (ngSubmit)="search_voter_list(search_data.value)">
+              <input type="text" class="search"  placeholder="Search..." name="search" ngModel>
+              <input type="submit" class="search_btn" value="Search">
+          </form>
+       </div>
         <div class="col-sm-3">
             <select class="form-select" aria-label="Default select example" name="assembliyList"   #mygruouplist (change)='get_gropup_by_list(mygruouplist.value)'>
                 <option selected >Select List</option>
@@ -44,13 +45,17 @@
                 <th scope="col">Location</th>
                 <th scope="col">HouseNo</th>
                 <th scope="col">Id Card</th>
+                <th scope="col" style="width: 100px">Action</th>
                 <!-- <th scope="col">Updated By</th> -->
                 <!-- <th scope="col">Voter Relation</th>
                 <th scope="col">Problem/Suggestion</th> -->
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let voter of voter_data;">
+              <tr *ngFor="let voter of voter_data | paginate: { id: 'pagination',
+              itemsPerPage: 10,
+              currentPage: p,
+              totalItems: 100 }">
                 <td>{{voter.VNAME_EN}}</td>
                 <td>{{voter.VRNAME_EN}}</td>
                 <td>{{voter.SEX}}</td>
@@ -58,12 +63,131 @@
                 <td>{{voter.PS_EN}}</td>
                 <td>{{voter.AGE}}</td>
                 <td>{{voter.IDCARD_NO}}</td>
+                <td><button class="btn btn-success" (click)="openModal(template , voter)"> <i class="fas fa-edit"></i> Edit</button></td>
                 <!-- <td></td> -->
                 <!-- <td>{{voter.VOTER_RELA}}</td>
                 <td>{{voter.PRO_SUGG}}</td> -->
               </tr>
             </tbody>
           </table>
+          <div class="col-sm-12 text-center p-3" >
+            <pagination-controls  id="pagination" (pageChange)="p = $event">
+            </pagination-controls>
+          </div>
+
     </div>
 </div>
 
+
+
+<ng-template #template>
+  <div class="modal-header text-center">
+     <h4 class="modal-title pull-left ">Details</h4>
+     <!-- <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()"> -->
+        <!-- <span aria-hidden="true">×</span>
+     </button> -->
+  </div>
+  <div class="modal-body">
+    <div class="row m-3">
+      <div class="col-sm-12">
+        <div class="border p-3 text-warning">{{list_details.PS_EN}} </div>
+        <table class="user_list">
+          <tbody>
+            <tr>
+              <th>Assembly</th>
+              <td></td>
+              <th>Serial No</th>
+              <td></td>
+            </tr>
+            <tr>
+              <th>Part  No</th>
+              <td>{{list_details.PART_NO}} <ng-container *ngIf="!list_details.PART_NO"> N/A </ng-container> </td> 
+              <th>Booth No</th>
+              <td>{{list_details.BOOTH_NO}} <ng-container *ngIf="!list_details.BOOTH_NO"> N/A </ng-container> </td>
+            </tr>
+            <tr>
+              <th>Id Card</th>
+              <td>{{list_details.IDCARD_NO}} <ng-container *ngIf="!list_details.IDCARD_NO"> N/A </ng-container> </td>
+              <th>Ward No</th>
+              <td>{{list_details.WARD_NO}} <ng-container *ngIf="!list_details.WARD_NO"> N/A </ng-container> </td>
+            </tr>
+            <tr>
+              <th>Name</th>
+              <td>{{list_details.VNAME_EN}}  <ng-container *ngIf="!list_details.VNAME_EN"> N/A </ng-container> </td>
+              <th>Relation</th>
+              <td>{{list_details.RELATION}} <ng-container *ngIf="!list_details.RELATION"> N/A </ng-container> </td>
+            </tr>
+            <tr>
+              <th>Age</th>
+              <td>{{list_details.AGE}} <ng-container *ngIf="!list_details.AGE"> N/A </ng-container> </td>
+              <th>Sex</th>
+              <td>{{list_details.SEX_}} <ng-container *ngIf="!list_details.SEX_"> N/A </ng-container> </td>
+            </tr>
+            <tr>
+              <th>DOB</th>
+              <td>{{list_details.DOB}}  <ng-container *ngIf="!list_details.DOB"> N/A </ng-container> </td>
+              <th>Caste</th>
+              <td>{{list_details.CASTE}} <ng-container *ngIf="!list_details.CASTE"> N/A </ng-container> </td>
+            </tr>
+            <tr>
+              <th>Religion</th>
+              <td>{{list_details.RELIGION}}  <ng-container *ngIf="!list_details.RELIGION"> N/A </ng-container> </td>
+              <th>Profession</th>
+              <td>{{list_details.PROFESSION}}  <ng-container *ngIf="!list_details.PROFESSION"> N/A </ng-container> </td>
+            </tr>
+            <tr>
+              <th>Survey</th>
+              <td>{{list_details.SURVEY}} <ng-container *ngIf="!list_details.SURVEY"> N/A </ng-container> </td>
+              <th>House No</th>
+              <td>{{list_details.HOUSE_NO}} <ng-container *ngIf="!list_details.HOUSE_NO"> N/A </ng-container> </td>
+            </tr>
+            <tr>
+              <th>Village</th>
+              <td>{{list_details.VILLAGE}}  <ng-container *ngIf="!list_details.VILLAGE"> N/A </ng-container></td>
+              <th>New Address</th>
+              <td>{{list_details.NEW_ADD}}  <ng-container *ngIf="!list_details.NEW_ADD"> N/A </ng-container></td>
+            </tr>
+            <tr>
+              <th>Voted</th>
+              <td> <input type="checkbox" name="voted" value="{{list_details.VOTED}}"></td>
+              <th>Dead</th>
+              <td> <input type="checkbox" name="dead" value="{{list_details.IS_DEAD}}"></td>
+            </tr>
+            <tr>
+              <th>Mobile1</th>
+              <td> <input type="number" name="mobile1" value="{{list_details.MOBILE_1}}"></td>
+              <th>Mobile2</th>
+              <td> <input type="number" name="mobile2" value="{{list_details.MOBILE_2}}"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+ 
+
+   <!-- <form [formGroup]="user_child" (ngSubmit)="onSubmit(user_child)">
+       <div class="form-group">
+         <label for="moblie">Mobile</label>
+         <input type="number" class="form-control" formControlName="mobile" >
+       </div>
+       <div class="form-group">
+         <label for="name">Name</label>
+         <input type="text" class="form-control" formControlName="name"  >
+       </div>
+       <div class="form-group pb-3">
+         <label for="passsword">Password</label>
+         <input type="password" class="form-control" placeholder="******" formControlName="password" >
+       </div>
+       <div class="form-check">
+         <input type="checkbox" class="form-check-input" formControlName="enable" >
+         <label class="form-check-label" for="assign">Assign Enabled</label>
+       </div>
+       <div class="form-group pb-3 text-center">
+         <button type="submit" class="btn btn-primary">Update</button>
+       </div>
+     </form> -->
+  </div>
+  <div class="modal-footer">
+     <!-- <button type="button" class="btn btn-default" (click)="modalRef.hide()">Close</button> -->
+  </div>
+</ng-template>

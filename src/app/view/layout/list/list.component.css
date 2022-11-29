@@ -1,24 +1,26 @@
 input.search {
-    border: 2px solid coral;
+    border: 1px solid lightgray;
     border-right: none;
-    width: 350px;
-    text-align: center;
-    padding: 11px;
-    border-radius: 10px 0 0 10px;
+    width: 165px;
+    padding: 4px 10px;
+    border-radius: 5px;
+    border-radius: 5px 0 0  5px;
 }
 input.search_btn {
-    border: 2px solid coral;
+    border: 1px solid coral;
     border-left: none;
     color: white;
     background: coral;
-    font-size: 20px;
-    padding-bottom: 10px !IMPORTANT;
-    padding: 6px 30px;
-    border-radius: 0 10px 10px 0;
+    font-size: 16px;
+    padding: 4px 10px;
+    border-radius: 0 5px 5px 0;
 }
 .search:focus-visible {
     outline: none;
 }
 .table_data{
     box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+table.user_list td, table.user_list th {
+    width: 200px;
 }

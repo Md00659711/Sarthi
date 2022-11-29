@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row  mt-5">
+        <div class="col-sm-6 offset-sm-3 mt-5  mb-1">
+            <h4>Notification</h4>
+        </div>
+        <div class="col-sm-6 offset-sm-3 shadow-none p-3 mb-5 bg-light rounded">
+            <form [formGroup]="notification" (submit)="noficationSubmit(notification)">
+                <div class="form-group form-check">
+                    <label class="form-check-label" for="all">All Uers</label>
+                    <input type="checkbox"  name="all_user" class="form-check-input"  formControlName="all">
+                  </div>
+                <div class="form-group">
+                  <label  class="form-check-label" for="title">Notification Title*</label><br><br>
+                  <input type="text" class="form-control" placeholder="Enter Notification Title" name="title"  formControlName="title">
+      
+                </div>
+                <div class="form-group mt-3">
+                    <label for="img"> Notification Image (optional)</label><br><br>
+                    <input type="file" name="template" class="form-control"  formControlName="img">
+     
+                </div>
+                <div class="form-group mt-3" *ngIf="all_check">
+                    <label for="img">User Id*</label><br><br>
+                    <select class="form-control"  formControlName="user" name="user">
+                        <option selected>Open this select menu</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

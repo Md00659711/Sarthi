@@ -4,7 +4,7 @@
     left: 0;
     height: 100%;
     width: 260px;
-    background: #ffffff;
+    background: #1a273a;
     z-index: 100;
     transition: all 0.5s ease;
     box-shadow: 0 0.5rem 1rem 0 rgb(44 51 73 / 10%);
@@ -53,7 +53,7 @@
    
     color: #FF7F50;
     cursor: pointer;
-    background-color: #fff;
+    background-color: #1a273a;
     transition: all 0.3s ease;
   }
   .sidebar .nav-links li i:hover{
